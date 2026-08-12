@@ -50,7 +50,7 @@ const TypewriterText = ({ text }) => {
 }
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ fullname: '', phone: '', email: '' })
+  const [form, setForm] = useState({ fullname: '', phone: '', email: '', honeypot: '' })
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -64,6 +64,10 @@ const ContactForm = () => {
     e.preventDefault()
     if (form.phone.length !== 10) { setError('Enter valid 10-digit number'); return }
     if (!/^[6-9]\d{9}$/.test(form.phone)) { setError('Phone number must start with 6, 7, 8, or 9'); return }
+    if (form.honeypot) {
+      setSuccess(true)
+      return
+    }
     setError(''); setLoading(true)
     const tracking = buildTrackingFields()
     const payload = new FormData()
@@ -141,6 +145,11 @@ const ContactForm = () => {
         <input name="phone" required value={form.phone} onChange={handle}
           placeholder="10-digit mobile number" maxLength={10}
           className="form-input" style={{ fontFamily: F_SANS, width: '100%' }} />
+      </div>
+
+      {/* Honeypot field - invisible to humans, bots will fill it */}
+      <div style={{ display: 'none', position: 'absolute', left: '-9999px' }} aria-hidden="true">
+        <input type="text" name="honeypot" tabIndex="-1" autoComplete="off" value={form.honeypot} onChange={handle} />
       </div>
 
       {error && <p style={{ color: 'red', fontSize: '12px' }}>{error}</p>}

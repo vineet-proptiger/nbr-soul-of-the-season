@@ -11,7 +11,7 @@ const inputClass = 'w-full mb-3 border-0 border-b-2 border-gray-200 bg-transpare
 const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
 
 const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details' }) => {
-  const [formData, setFormData] = useState({ fullname: '', email: '', phone: '' })
+  const [formData, setFormData] = useState({ fullname: '', email: '', phone: '', honeypot: '' })
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -25,6 +25,10 @@ const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details' }) => {
     e.preventDefault()
     if (formData.phone.length !== 10) { setError('Please enter a valid 10-digit mobile number.'); return }
     if (!/^[6-9]\d{9}$/.test(formData.phone)) { setError('Phone number must start with 6, 7, 8, or 9'); return }
+    if (formData.honeypot) {
+      setSuccess(true)
+      return
+    }
     setError(''); setLoading(true)
     const tracking = buildTrackingFields()
     const payload = new FormData()
@@ -80,6 +84,11 @@ const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details' }) => {
         className={inputClass} style={{ fontFamily: F_SANS }} />
       <input type="tel" name="phone" required placeholder="10-digit mobile number" maxLength={10} value={formData.phone} onChange={handleChange}
         className={inputClass} style={{ fontFamily: F_SANS }} />
+      
+      {/* Honeypot field - invisible to humans, bots will fill it */}
+      <div style={{ display: 'none', position: 'absolute', left: '-9999px' }} aria-hidden="true">
+        <input type="text" name="honeypot" tabIndex="-1" autoComplete="off" value={formData.honeypot} onChange={handleChange} />
+      </div>
 
       {error && <p className="text-red-500 text-xs mt-1" style={{ fontFamily: F_SANS }}>{error}</p>}
 
