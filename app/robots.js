@@ -3,9 +3,8 @@ export default function robots() {
     rules: {
       userAgent: '*',
       allow: ['/', '/sector-46-gurgaon'],
-      // disallow: ['/privacy-policy', '/sector-46-gurgaon/privacy-policy'],
+      disallow: ['/vin', '/sector-46-gurgaon'],
     },
-    sitemap: 'https://nbrsouloftheseason.com/sitemap.xml',
+    sitemap: 'https://nbrsouloftheseason.co.in/sitemap.xml',
   }
 }
-

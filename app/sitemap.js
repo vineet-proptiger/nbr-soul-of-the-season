@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const base = 'https://nbrsouloftheseason.com'
+  const base = 'https://nbrsouloftheseason.co.in'
 
   return [
     {
@@ -8,11 +8,11 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
-    {
-      url: base + '/sector-46-gurgaon',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
+    // {
+    //   url: base + '/sector-46-gurgaon',
+    //   lastModified: new Date(),
+    //   changeFrequency: 'weekly',
+    //   priority: 0.9,
+    // },
   ]
 }
