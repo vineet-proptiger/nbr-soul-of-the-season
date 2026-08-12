@@ -97,7 +97,7 @@ const Overview = ({ setIsOpen }) => {
           }}>
             {isExpanded ? (
               <>
-                Tucked away along the serene stretches of Sarjapur Road, Soul of the Seasons by NBR Group beckons as a sanctuary where refine living dances with nature. This exclusive haven offers an exquisite blend of modern elegance and timeless tranquillity, with 88% of its expanse devoted to lush green spaces.\n\nRenowned for its legacy of high-quality developments, NBR Group crafts a home where every detail whispers harmony with the earth. Here, amidst the beauty of nature, Soul of the Seasons invites you to experience a life that nurtures the spirit and elevates every day, offering a perfect balance of serenity and sophistication.{' '}
+                Tucked away along the serene stretches of Sarjapur Road, Soul of the Seasons by NBR Group beckons as a sanctuary where refine living dances with nature. This exclusive haven offers an exquisite blend of modern elegance and timeless tranquillity, with 88% of its expanse devoted to lush green spaces.<br /><br />Renowned for its legacy of high-quality developments, NBR Group crafts a home where every detail whispers harmony with the earth. Here, amidst the beauty of nature, Soul of the Seasons invites you to experience a life that nurtures the spirit and elevates every day, offering a perfect balance of serenity and sophistication.{' '}
                 <button
                   onClick={() => setIsExpanded(false)}
                   style={{
