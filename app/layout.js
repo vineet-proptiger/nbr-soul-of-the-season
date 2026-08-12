@@ -35,7 +35,7 @@ const nephilm = localFont({
 export const metadata = {
   metadataBase: new URL('https://nbrsouloftheseason.com/'),
   title: 'NBR Soul of The Season | 3 BHK Luxury Residences in Sarjapur Road, Gunjur, Bangalore',
-  description: "Escape to bountiful freshness and host yourself to an impeccable living atmosphere in Gurugram's Sarjapur Road. An exotic green landscape compliments a stupendous 2-acre residential complex.",
+  description: "Escape to bountiful freshness and host yourself to an impeccable living atmosphere in Bangalore's Sarjapur Road. An exotic green landscape compliments a stupendous 2-acre residential complex.",
   icons: {
     icon: '/images/favicon/fav.webp',
   },
