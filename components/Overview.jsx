@@ -97,7 +97,7 @@ const Overview = ({ setIsOpen }) => {
           }}>
             {isExpanded ? (
               <>
-                Tucked away along the serene stretches of Sarjapur Road, Soul of the Seasons by NBR Group beckons as a sanctuary where refine living dances with nature. This exclusive haven offers an exquisite blend of modern elegance and timeless tranquillity, with 88% of its expanse devoted to lush green spaces.<br />Renowned for its legacy of high-quality developments, NBR Group crafts a home where every detail whispers harmony with the earth. Here, amidst the beauty of nature, Soul of the Seasons invites you to experience a life that nurtures the spirit and elevates every day, offering a perfect balance of serenity and sophistication.{' '}
+                NBR Soul of the Seasons is a premium residential community located in Gunjur, off Sarjapur Road, Bengaluru. Spread across 9.65 acres, the project features 594 exclusive 3 BHK homes across four towers, with over 88% of the development dedicated to open and landscaped spaces. Designed around the GAIA philosophy and the harmony of nature, the project brings together modern architecture, greenery, natural light and peaceful surroundings.<br />The homes are thoughtfully planned for comfortable and private living, with spacious layouts and Vastu-compliant designs. Residents can enjoy a 40,000 sq. ft. clubhouse and 70+ lifestyle amenities, including a swimming pool, gym, yoga areas, sports facilities, children's play zones and landscaped spaces. Its location on Sarjapur Road also offers convenient access to major IT hubs such as Whitefield, RGA Tech Park and Electronic City, making it suitable for both families and working professionals.{' '}
                 <button
                   onClick={() => setIsExpanded(false)}
                   style={{
@@ -118,7 +118,7 @@ const Overview = ({ setIsOpen }) => {
               </>
             ) : (
               <>
-                Tucked away along the serene stretches of Sarjapur Road, Soul of the Seasons by NBR Group beckons as a sanctuary where refine living dances with nature. This exclusive haven offers an exquisite blend of modern elegance and timeless tranquillity, with 88% of its expanse devoted to lush green spaces...{' '}
+                NBR Soul of the Seasons is a premium residential community located in Gunjur, off Sarjapur Road, Bengaluru. Spread across 9.65 acres, the project features 594 exclusive 3 BHK homes across four towers, with over 88% of the development dedicated to open and landscaped spaces. Designed around the GAIA philosophy and the harmony of nature, the project brings together modern architecture, greenery, natural light and peaceful surroundings...{' '}
                 <button
                   onClick={() => setIsExpanded(true)}
                   style={{

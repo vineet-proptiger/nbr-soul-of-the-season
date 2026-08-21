@@ -14,6 +14,7 @@ const plans = [
 
 const MasterPlan = ({ setIsOpen }) => {
   const [activePlan, setActivePlan] = useState(0)
+  const [lightboxImg, setLightboxImg] = useState(null)
 
   return (
     <section id="masterplan" style={{
@@ -161,18 +162,26 @@ const MasterPlan = ({ setIsOpen }) => {
                 </span>
               </div>
 
-              {/* Blurred image */}
-              <Image src={plans[activePlan].img} alt={plans[activePlan].label} fill
-                style={{ 
-                  objectFit: 'cover', 
-                  filter: 'blur(5px)', 
-                  transform: 'scale(1.06)' 
-                }} />
+              {/* Image */}
+              <div 
+                onClick={() => activePlan === 0 && setLightboxImg(plans[activePlan].img)}
+                style={{ cursor: activePlan === 0 ? 'pointer' : 'default', position: 'absolute', inset: 0 }}
+              >
+                <Image src={plans[activePlan].img} alt={plans[activePlan].label} fill
+                  style={{ 
+                    objectFit: 'cover', 
+                    filter: activePlan !== 0 ? 'blur(5px)' : 'none', 
+                    transform: activePlan !== 0 ? 'scale(1.06)' : 'none' 
+                  }} />
+              </div>
 
               {/* Dark overlay */}
               <div style={{
                 position: 'absolute', inset: 0,
                 background: 'rgba(17,24,39,0.45)',
+                opacity: activePlan !== 0 ? 1 : 0,
+                pointerEvents: activePlan !== 0 ? 'auto' : 'none',
+                transition: 'opacity 0.3s',
               }} />
 
               {/* CTA in center */}
@@ -180,6 +189,9 @@ const MasterPlan = ({ setIsOpen }) => {
                 position: 'absolute', inset: 0, zIndex: 5,
                 display: 'flex', flexDirection: 'column',
                 alignItems: 'center', justifyContent: 'center', gap: '12px',
+                opacity: activePlan !== 0 ? 1 : 0,
+                pointerEvents: activePlan !== 0 ? 'auto' : 'none',
+                transition: 'opacity 0.3s',
               }}>
                 <div style={{
                   width: '52px', height: '52px', borderRadius: '50%',
@@ -200,7 +212,6 @@ const MasterPlan = ({ setIsOpen }) => {
                   Register to Unlock Floor Plan
                 </p>
                 <button onClick={() => setIsOpen(true)} className="btn-gold"
-                  data-aos="zoom-in" data-aos-delay="400"
                   style={{ padding: '11px 32px', fontSize: '13px', letterSpacing: '0.1em' }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -215,6 +226,34 @@ const MasterPlan = ({ setIsOpen }) => {
 
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightboxImg && (
+        <div 
+          onClick={() => setLightboxImg(null)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 99999,
+            background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(4px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: '20px'
+          }}>
+          <div 
+            onClick={(e) => e.stopPropagation()} 
+            style={{ position: 'relative', width: '100%', maxWidth: '900px', height: '80vh' }}
+          >
+            <button 
+              onClick={() => setLightboxImg(null)}
+              style={{
+                position: 'absolute', top: '-40px', right: 0,
+                background: 'transparent', border: 'none', color: '#fff',
+                fontSize: '30px', cursor: 'pointer', zIndex: 10
+              }}>
+              &times;
+            </button>
+            <Image src={lightboxImg} alt="Master Plan Full" fill style={{ objectFit: 'contain' }} />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
